@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>Knowledge Scope — вопросы технического интервью Android</title>
-<meta name="description" content="Каталог вопросов для технического интервью Android-разработчиков: Java, Kotlin, Android Core, архитектура, технологии, тестирование. Уровни: Novice, Interm, Advanced.">
+<title>Interview Deck — вопросы технического интервью Android</title>
+<meta name="description" content="Interview Deck — каталог вопросов для технического интервью Android-разработчиков: Kotlin, Java, платформа Android, стек, архитектура, тестирование. Уровни: Junior, Middle, Senior.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23CC7832'/%3E%3C/svg%3E">
 <script>
 (function(){try{var t=localStorage.getItem('ks-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}catch(e){}})();
@@ -406,7 +406,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
     <a class="brand" href="#top">
       <span class="brand-dot" aria-hidden="true"></span>
       <div>
-        <h1>Knowledge Scope</h1>
+        <h1>Interview Deck</h1>
         <p>вопросы технического интервью Android</p>
       </div>
     </a>
@@ -496,10 +496,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
 </div>
 
 <script>window.KS_DATA = [{
-  "t": "Software Engineering Practices",
+  "t": "Инженерная база",
   "s": [
     {
-      "t": "IT fundamentals and principles",
+      "t": "Основы и принципы ООП",
       "l": {
         "novice": [
           "Расскажи, что понимается под объектно-ориентированным программированием",
@@ -526,41 +526,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Version Control System",
+  "t": "Процессы разработки",
   "s": [
     {
-      "t": "Version Control System",
-      "l": {
-        "novice": [
-          "Зачем нужны системы контроля версий и какую роль среди них играет Git",
-          "Какие базовые команды Git ты используешь каждый день (commit, push, pull, merge и другие)",
-          "Что такое ветки и для чего их создают",
-          "Как задать автора коммитов (имя и email) для конкретного репозитория"
-        ],
-        "interm": [
-          "Что делает cherry-pick и в каких случаях выручает",
-          "Сравни merge и rebase: в чём различие и почему rebase считают рискованным",
-          "fetch против pull — в чём суть отличия",
-          "Для чего существует git stash и чем это отличается от применения патча",
-          "Что умеет git commit --amend",
-          "Как склеить несколько коммитов, если они в конце истории? А если они зарыты глубоко внутри?"
-        ],
-        "advanced": [
-          "Что даёт интерактивный rebase и какие операции в нём доступны",
-          "Как разделить один коммит на несколько и наоборот — сжать несколько в один",
-          "Какие режимы git reset существуют и чем они отличаются",
-          "В чём принципиальное отличие децентрализованных систем контроля версий от централизованных",
-          "Как подключить git hook и для чего это применяется"
-        ]
-      }
-    }
-  ]
-},
-{
-  "t": "Software Development Processes",
-  "s": [
-    {
-      "t": "Estimations",
+      "t": "Оценка задач",
       "l": {
         "novice": [
           "С какой целью команды вообще оценивают задачи"
@@ -577,7 +546,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Development methodologies",
+      "t": "Методологии разработки",
       "l": {
         "novice": [
           "Зачем нужны методики разработки ПО и что они из себя представляют"
@@ -601,148 +570,41 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Java",
-  "s": [
-    {
-      "t": "Basics",
-      "l": {
-        "novice": [
-          "Какие дефолтные значения получают поля, если их явно не задать",
-          "Зачем нужен equals() и чем он отличается от сравнения через ==",
-          "Почему метод hashCode обычно пишут вместе с equals",
-          "Какие методы есть у класса Object",
-          "Для чего существуют enum",
-          "Чем абстрактный класс отличается от интерфейса",
-          "Перечисли модификаторы доступа и их зоны видимости",
-          "Какие категории исключений бывают",
-          "Где можно поставить final и что он меняет",
-          "Куда можно добавить static и как это меняет поведение"
-        ],
-        "interm": [
-          "В какой момент вызывается finalize",
-          "Что возвращает hashCode(), если его не переопределяли",
-          "Для чего нужен метод clone",
-          "Что делает ключевое слово transient",
-          "Чем Object отличается от Class",
-          "Что такое сериализация и какими способами её можно сделать",
-          "Что разрешено помещать внутрь интерфейса, в том числе начиная с Java 8",
-          "Какие бывают вложенные и внутренние классы",
-          "Чем checked-исключения отличаются от unchecked",
-          "Что значит immutable-класс и как его создать",
-          "Что такое autoboxing и unboxing и зачем они появились",
-          "Разведи понятия final, finally и finalize",
-          "finalize() против System.gc() — в чём разница",
-          "Что дают generics, что такое wildcard и чем super отличается от extends в дженериках",
-          "Какие правила связывают equals и hashCode между собой",
-          "Как работает equals из коробки, без переопределения",
-          "Почему после изменения equals нужно переписать и hashCode"
-        ],
-        "advanced": [
-          "Что называют глубоким клонированием",
-          "Почему wait, notify и notifyAll лежат в Object, хотя кажутся потоковыми методами",
-          "Почему строки в Java сделали неизменяемыми",
-          "Что такое пул строк и целых чисел",
-          "Что делает метод String.intern()",
-          "Зачем нужны статические блоки инициализации",
-          "Как через Reflection API добраться до приватных полей объекта",
-          "Объясни ковариантность, контравариантность и инвариантность",
-          "Что такое Externalizable и чем он отличается от Serializable"
-        ]
-      }
-    },
-    {
-      "t": "Collections",
-      "l": {
-        "novice": [
-          "Назови ключевые интерфейсы коллекций и их назначение",
-          "Как устроен ArrayList внутри? Что происходит при вставке в середину, насколько вырастет массив после добавления 11-го элемента к десяти и освобождается ли память старого массива",
-          "Что лежит в основе LinkedList, чем он отличается от ArrayList и что меняется при добавлении элемента",
-          "Может ли в HashMap быть null в ключе или значении и чей хэш-код вычисляется при вставке",
-          "В чём специфика HashSet и на чём он построен"
-        ],
-        "interm": [
-          "Чем Collection отличается от Collections",
-          "Почему Map не является наследником Collection",
-          "Что такое Iterator, какие у него методы и зачем он нужен",
-          "Какой стартовый размер у ArrayList",
-          "Как понять, с какого конца начинать обход LinkedList",
-          "Разбери по шагам работу метода put у HashMap: что такое бакет и как разруливаются коллизии",
-          "В чём идея LinkedHashMap",
-          "Сравни сложность вставки и поиска у основных коллекций"
-        ],
-        "advanced": [
-          "Массив против ArrayList — в чём отличия",
-          "Что такое loadFactor в HashMap и на что он влияет? Как считается индекс ячейки и когда бакет превращается в дерево",
-          "На базе чего работает HashSet и что лежит в value, если в основе Map",
-          "Как дерево балансируется и что случится, если добавлять элементы строго по возрастанию",
-          "Зачем нужны NavigableSet и NavigableMap",
-          "Что такое WeakHashMap и чем он отличается от обычной HashMap"
-        ]
-      }
-    },
-    {
-      "t": "Concurrency",
-      "l": {
-        "novice": [
-          "Thread против Runnable — что из чего лучше и как выбрать",
-          "Как запустить поток в Java",
-          "Что такое монитор объекта",
-          "Где ставится synchronized и как он действует",
-          "Как согласовать работу двух потоков через методы Object"
-        ],
-        "interm": [
-          "Как синхронизировать статические методы",
-          "В чём отличие synchronized(Obj.getClass()) от synchronized(Obj.class)",
-          "Что произойдёт, если вызвать run() напрямую вместо start()",
-          "Для чего нужен Callable",
-          "Какие средства существуют для приостановки и остановки потока",
-          "Сравни synchronized и Lock",
-          "Где применяется volatile и что он гарантирует",
-          "Слышал ли про семафор и другие синхронизаторы — какую задачу они решают",
-          "Зачем нужны Executors",
-          "В каких ситуациях возникает deadlock и как с ним бороться",
-          "Когда появляется race condition и как его избежать"
-        ],
-        "advanced": [
-          "Как устроены атомарные классы и чем они лучше или хуже volatile",
-          "Разбери синхронизаторы: Semaphore, CountDownLatch, CyclicBarrier, Exchanger, Phaser",
-          "Какие пулы потоков бывают, как их запустить и остановить и что случится с незавершёнными задачами после shutdown",
-          "Сравни concurrent-коллекции: CopyOnWriteArrayList и synchronizedList, ConcurrentHashMap и synchronizedMap",
-          "Почему нельзя пользоваться Thread.stop() и как корректно завершать поток",
-          "Что входит в пакет java.util.concurrent"
-        ]
-      }
-    },
-    {
-      "t": "Memory",
-      "l": {
-        "novice": [
-          "Как в целом организована память JVM",
-          "Что такое сборщик мусора и по какому принципу он работает",
-          "Что хранится в стеке, а что в куче",
-          "Что такое утечка памяти"
-        ],
-        "interm": [
-          "Почему не всё кладётся в кучу и зачем нужен стек",
-          "Что сделает GC с объектами, которые ссылаются друг на друга",
-          "Какие типы ссылок есть и как они влияют на сборку мусора",
-          "Как устроить утечку памяти в Android и почему с точки зрения GC она возникает"
-        ],
-        "advanced": [
-          "Перечисли все области памяти JVM",
-          "Куда именно попадает только что созданный объект",
-          "По каким признакам объект переезжает из Young в Old",
-          "Что такое GC roots"
-        ]
-      }
-    }
-  ]
+    "t":  "Контроль версий",
+    "s":  [
+              {
+                  "t":  "Git и ветвление",
+                  "l":  {
+                            "novice":  [
+                                           "Зачем нужны системы контроля версий и какую роль среди них играет Git",
+                                           "Какие базовые команды Git ты используешь каждый день (commit, push, pull, merge и другие)",
+                                           "Что такое ветки и для чего их создают",
+                                           "Как задать автора коммитов (имя и email) для конкретного репозитория"
+                                       ],
+                            "interm":  [
+                                           "Что делает cherry-pick и в каких случаях выручает",
+                                           "Сравни merge и rebase: в чём различие и почему rebase считают рискованным",
+                                           "fetch против pull — в чём суть отличия",
+                                           "Для чего существует git stash и чем это отличается от применения патча",
+                                           "Что умеет git commit --amend",
+                                           "Как склеить несколько коммитов, если они в конце истории? А если они зарыты глубоко внутри?"
+                                       ],
+                            "advanced":  [
+                                             "Что даёт интерактивный rebase и какие операции в нём доступны",
+                                             "Как разделить один коммит на несколько и наоборот — сжать несколько в один",
+                                             "Какие режимы git reset существуют и чем они отличаются",
+                                             "В чём принципиальное отличие децентрализованных систем контроля версий от централизованных",
+                                             "Как подключить git hook и для чего это применяется"
+                                         ]
+                        }
+              }
+          ]
 },
 {
   "t": "Kotlin",
   "s": [
     {
-      "t": "Basics (differences from Java)",
+      "t": "Отличия от Java",
       "l": {
         "novice": [
           "Как в Kotlin устроена защита от null",
@@ -773,7 +635,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Kotlin-only features",
+      "t": "Возможности Kotlin",
       "l": {
         "novice": [
           "Разница между var и val, плюс зачем нужен const",
@@ -814,7 +676,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Coroutines",
+      "t": "Корутины и Flow",
       "l": {
         "novice": [
           "Какую проблему решают корутины и почему не обойтись обычными потоками",
@@ -861,10 +723,148 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Android Core",
+  "t": "Java",
   "s": [
     {
-      "t": "Fundamentals",
+      "t": "Основы языка",
+      "l": {
+        "novice": [
+          "Какие дефолтные значения получают поля, если их явно не задать",
+          "Зачем нужен equals() и чем он отличается от сравнения через ==",
+          "Почему метод hashCode обычно пишут вместе с equals",
+          "Какие методы есть у класса Object",
+          "Для чего существуют enum",
+          "Чем абстрактный класс отличается от интерфейса",
+          "Перечисли модификаторы доступа и их зоны видимости",
+          "Какие категории исключений бывают",
+          "Где можно поставить final и что он меняет",
+          "Куда можно добавить static и как это меняет поведение"
+        ],
+        "interm": [
+          "В какой момент вызывается finalize",
+          "Что возвращает hashCode(), если его не переопределяли",
+          "Для чего нужен метод clone",
+          "Что делает ключевое слово transient",
+          "Чем Object отличается от Class",
+          "Что такое сериализация и какими способами её можно сделать",
+          "Что разрешено помещать внутрь интерфейса, в том числе начиная с Java 8",
+          "Какие бывают вложенные и внутренние классы",
+          "Чем checked-исключения отличаются от unchecked",
+          "Что значит immutable-класс и как его создать",
+          "Что такое autoboxing и unboxing и зачем они появились",
+          "Разведи понятия final, finally и finalize",
+          "finalize() против System.gc() — в чём разница",
+          "Что дают generics, что такое wildcard и чем super отличается от extends в дженериках",
+          "Какие правила связывают equals и hashCode между собой",
+          "Как работает equals из коробки, без переопределения",
+          "Почему после изменения equals нужно переписать и hashCode"
+        ],
+        "advanced": [
+          "Что называют глубоким клонированием",
+          "Почему wait, notify и notifyAll лежат в Object, хотя кажутся потоковыми методами",
+          "Почему строки в Java сделали неизменяемыми",
+          "Что такое пул строк и целых чисел",
+          "Что делает метод String.intern()",
+          "Зачем нужны статические блоки инициализации",
+          "Как через Reflection API добраться до приватных полей объекта",
+          "Объясни ковариантность, контравариантность и инвариантность",
+          "Что такое Externalizable и чем он отличается от Serializable"
+        ]
+      }
+    },
+    {
+      "t": "Коллекции",
+      "l": {
+        "novice": [
+          "Назови ключевые интерфейсы коллекций и их назначение",
+          "Как устроен ArrayList внутри? Что происходит при вставке в середину, насколько вырастет массив после добавления 11-го элемента к десяти и освобождается ли память старого массива",
+          "Что лежит в основе LinkedList, чем он отличается от ArrayList и что меняется при добавлении элемента",
+          "Может ли в HashMap быть null в ключе или значении и чей хэш-код вычисляется при вставке",
+          "В чём специфика HashSet и на чём он построен"
+        ],
+        "interm": [
+          "Чем Collection отличается от Collections",
+          "Почему Map не является наследником Collection",
+          "Что такое Iterator, какие у него методы и зачем он нужен",
+          "Какой стартовый размер у ArrayList",
+          "Как понять, с какого конца начинать обход LinkedList",
+          "Разбери по шагам работу метода put у HashMap: что такое бакет и как разруливаются коллизии",
+          "В чём идея LinkedHashMap",
+          "Сравни сложность вставки и поиска у основных коллекций"
+        ],
+        "advanced": [
+          "Массив против ArrayList — в чём отличия",
+          "Что такое loadFactor в HashMap и на что он влияет? Как считается индекс ячейки и когда бакет превращается в дерево",
+          "На базе чего работает HashSet и что лежит в value, если в основе Map",
+          "Как дерево балансируется и что случится, если добавлять элементы строго по возрастанию",
+          "Зачем нужны NavigableSet и NavigableMap",
+          "Что такое WeakHashMap и чем он отличается от обычной HashMap"
+        ]
+      }
+    },
+    {
+      "t": "Многопоточность",
+      "l": {
+        "novice": [
+          "Thread против Runnable — что из чего лучше и как выбрать",
+          "Как запустить поток в Java",
+          "Что такое монитор объекта",
+          "Где ставится synchronized и как он действует",
+          "Как согласовать работу двух потоков через методы Object"
+        ],
+        "interm": [
+          "Как синхронизировать статические методы",
+          "В чём отличие synchronized(Obj.getClass()) от synchronized(Obj.class)",
+          "Что произойдёт, если вызвать run() напрямую вместо start()",
+          "Для чего нужен Callable",
+          "Какие средства существуют для приостановки и остановки потока",
+          "Сравни synchronized и Lock",
+          "Где применяется volatile и что он гарантирует",
+          "Слышал ли про семафор и другие синхронизаторы — какую задачу они решают",
+          "Зачем нужны Executors",
+          "В каких ситуациях возникает deadlock и как с ним бороться",
+          "Когда появляется race condition и как его избежать"
+        ],
+        "advanced": [
+          "Как устроены атомарные классы и чем они лучше или хуже volatile",
+          "Разбери синхронизаторы: Semaphore, CountDownLatch, CyclicBarrier, Exchanger, Phaser",
+          "Какие пулы потоков бывают, как их запустить и остановить и что случится с незавершёнными задачами после shutdown",
+          "Сравни concurrent-коллекции: CopyOnWriteArrayList и synchronizedList, ConcurrentHashMap и synchronizedMap",
+          "Почему нельзя пользоваться Thread.stop() и как корректно завершать поток",
+          "Что входит в пакет java.util.concurrent"
+        ]
+      }
+    },
+    {
+      "t": "Память и GC",
+      "l": {
+        "novice": [
+          "Как в целом организована память JVM",
+          "Что такое сборщик мусора и по какому принципу он работает",
+          "Что хранится в стеке, а что в куче",
+          "Что такое утечка памяти"
+        ],
+        "interm": [
+          "Почему не всё кладётся в кучу и зачем нужен стек",
+          "Что сделает GC с объектами, которые ссылаются друг на друга",
+          "Какие типы ссылок есть и как они влияют на сборку мусора",
+          "Как устроить утечку памяти в Android и почему с точки зрения GC она возникает"
+        ],
+        "advanced": [
+          "Перечисли все области памяти JVM",
+          "Куда именно попадает только что созданный объект",
+          "По каким признакам объект переезжает из Young в Old",
+          "Что такое GC roots"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Платформа Android",
+  "s": [
+    {
+      "t": "Основы платформы",
       "l": {
         "novice": [
           "Что такое класс R",
@@ -898,7 +898,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Activity, Fragments",
+      "t": "Activity и Fragments",
       "l": {
         "novice": [
           "Что такое Activity",
@@ -943,7 +943,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "State handling",
+      "t": "Состояние и конфигурация",
       "l": {
         "novice": [
           "Что происходит с Activity при повороте экрана",
@@ -966,7 +966,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Background work",
+      "t": "Фоновая работа",
       "l": {
         "novice": [
           "Что такое Service, в каком потоке он работает и какие виды бывают",
@@ -996,7 +996,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Views",
+      "t": "View-система",
       "l": {
         "novice": [
           "Назови базовые контейнеры View",
@@ -1037,7 +1037,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Compose",
+      "t": "Jetpack Compose",
       "l": {
         "novice": [
           "Для чего был создан Jetpack Compose",
@@ -1072,7 +1072,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Broadcast Receivers",
+      "t": "BroadcastReceiver",
       "l": {
         "novice": [
           "Что такое BroadcastReceiver и где его применяют",
@@ -1092,7 +1092,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Content Providers",
+      "t": "ContentProvider",
       "l": {
         "novice": [
           "Что такое ContentProvider и где он применяется",
@@ -1110,7 +1110,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Platform",
+      "t": "Платформа и сборка",
       "l": {
         "novice": [
           "Что такое APK и что у него внутри",
@@ -1172,10 +1172,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Android Features",
+  "t": "Возможности платформы",
   "s": [
     {
-      "t": "Notifications",
+      "t": "Уведомления",
       "l": {
         "novice": [
           "Что такое уведомления и зачем они",
@@ -1195,7 +1195,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Animations",
+      "t": "Анимации",
       "l": {
         "novice": [
           "Какими способами можно анимировать View",
@@ -1216,7 +1216,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Maps",
+      "t": "Карты и геолокация",
       "l": {
         "novice": [
           "Как встроить Google Maps в приложение",
@@ -1236,7 +1236,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Media (Player, Camera)",
+      "t": "Медиа: плеер и камера",
       "l": {
         "novice": [
           "Как сделать, чтобы приложение было камерой по умолчанию для фото и видео",
@@ -1264,7 +1264,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Bluetooth (BLE)",
+      "t": "Bluetooth и BLE",
       "l": {
         "novice": [
           "Что такое MAC-адрес",
@@ -1284,7 +1284,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "InApp purchases",
+      "t": "Покупки в приложении",
       "l": {
         "novice": [
           "Что такое встроенные покупки и какие их виды бывают",
@@ -1304,10 +1304,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Technologies",
+  "t": "Стек и библиотеки",
   "s": [
     {
-      "t": "Network",
+      "t": "Сеть и REST",
       "l": {
         "novice": [
           "Как с Retrofit отправить GET и POST",
@@ -1337,7 +1337,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Dagger",
+      "t": "Dagger 2",
       "l": {
         "novice": [
           "Что такое внедрение зависимостей, зачем оно и как реализуется",
@@ -1449,7 +1449,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Database",
+      "t": "Базы данных",
       "l": {
         "novice": [
           "Что такое база данных",
@@ -1478,7 +1478,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Images loading",
+      "t": "Загрузка изображений",
       "l": {
         "novice": [
           "Как загрузить картинку из сети",
@@ -1498,7 +1498,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Navigation",
+      "t": "Навигация",
       "l": {
         "novice": [
           "Какие библиотеки навигации знаешь",
@@ -1524,10 +1524,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Architecture",
+  "t": "Архитектура",
   "s": [
     {
-      "t": "Basics difference",
+      "t": "Паттерны и подходы",
       "l": {
         "novice": [
           "Что такое архитектура приложения, зачем она и приведи пример",
@@ -1591,7 +1591,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "Clean architecture",
+      "t": "Clean Architecture",
       "l": {
         "novice": [
           "Какие проблемы решает чистая архитектура и в чём её польза",
@@ -1639,10 +1639,10 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   ]
 },
 {
-  "t": "Testing",
+  "t": "Тестирование",
   "s": [
     {
-      "t": "Unit testing",
+      "t": "Юнит-тесты",
       "l": {
         "novice": [
           "Какую пользу дают юнит-тесты",
@@ -1673,7 +1673,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       }
     },
     {
-      "t": "UI testing",
+      "t": "UI-тесты",
       "l": {
         "novice": [
           "Чем UI-тесты отличаются от юнит-тестов",
