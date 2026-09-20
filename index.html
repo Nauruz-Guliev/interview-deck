@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Knowledge Scope — вопросы технического интервью Android</title>
+<meta name="description" content="Каталог вопросов для технического интервью Android-разработчиков: Java, Kotlin, Android Core, архитектура, технологии, тестирование. Уровни: Novice, Interm, Advanced.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%232E9E5E'/%3E%3C/svg%3E">
+<script>
+(function(){try{var t=localStorage.getItem('ks-theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}catch(e){}})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F5;
+  --surface:#FFFFFF;
+  --surface-2:#F1F4EF;
+  --ink:#1B211C;
+  --ink-2:#5C665F;
+  --ink-3:#8A938C;
+  --line:#E2E6E0;
+  --line-2:#ECEFEA;
+  --accent:#2E9E5E;
+  --accent-dark:#1E6E40;
+  --accent-soft:#E3F3E9;
+  --accent-on:#FFFFFF;
+  --lv-novice:#2E9E5E;
+  --lv-interm:#2F6BE0;
+  --lv-advanced:#7A3BE0;
+  --lv-novice-soft:#E7F5EC;
+  --lv-interm-soft:#E9F0FD;
+  --lv-advanced-soft:#F0E9FC;
+  --hover:rgba(27,33,28,.05);
+  --mark:#D7EFDF;
+  --topbar-bg:rgba(255,255,255,.9);
+  --shadow:0 1px 2px rgba(27,33,28,.05);
+  --check-bg:#1E6E40;
+  --check-fg:#FFFFFF;
+  --mono:'JetBrains Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+  --sans:'Onest','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#141A15;
+  --surface:#1B221C;
+  --surface-2:#212A22;
+  --ink:#E7ECE5;
+  --ink-2:#A6B0A7;
+  --ink-3:#75807A;
+  --line:#2A342C;
+  --line-2:#242D26;
+  --accent:#3FBE75;
+  --accent-dark:#8FE3B4;
+  --accent-soft:rgba(63,190,117,.16);
+  --accent-on:#0E1811;
+  --lv-novice:#4BC981;
+  --lv-interm:#7AA5FF;
+  --lv-advanced:#B195FF;
+  --lv-novice-soft:rgba(75,201,129,.14);
+  --lv-interm-soft:rgba(122,165,255,.14);
+  --lv-advanced-soft:rgba(177,149,255,.14);
+  --hover:rgba(231,236,229,.06);
+  --mark:rgba(63,190,117,.28);
+  --topbar-bg:rgba(20,26,21,.88);
+  --shadow:none;
+  --check-bg:#3FBE75;
+  --check-fg:#0E1811;
+}
+[data-theme="light"]{color-scheme:light}
+[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-size:14px;
+  line-height:1.55;
+  color:var(--ink);
+  background:var(--bg);
+}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:var(--topbar-bg);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1240px;margin:0 auto;padding:12px 24px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;color:inherit}
+.brand-dot{
+  flex:none;width:11px;height:11px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px var(--accent-soft);
+}
+.brand h1{margin:0;font-size:16px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.brand p{margin:0;font-size:12px;color:var(--ink-2);white-space:nowrap}
+.search-wrap{flex:1 1 240px;max-width:420px;position:relative}
+.search-wrap .ico{
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:15px;height:15px;color:var(--ink-3);pointer-events:none;
+}
+.search-wrap input{
+  width:100%;padding:9px 42px 9px 34px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);font:inherit;color:var(--ink);
+}
+.search-wrap input::placeholder{color:var(--ink-3)}
+.search-wrap input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.search-wrap kbd{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:4px;padding:1px 6px;background:var(--bg);
+}
+.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  padding:6px 12px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+  transition:border-color .15s,color .15s,background-color .15s,transform .1s;
+}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip:active{transform:translateY(1px)}
+.chip.active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip.active[data-level="novice"]{background:var(--lv-novice-soft);border-color:var(--lv-novice);color:var(--lv-novice)}
+.chip.active[data-level="interm"]{background:var(--lv-interm-soft);border-color:var(--lv-interm);color:var(--lv-interm)}
+.chip.active[data-level="advanced"]{background:var(--lv-advanced-soft);border-color:var(--lv-advanced);color:var(--lv-advanced)}
+.btn{
+  font-size:13px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  transition:background-color .15s,border-color .15s,transform .1s;
+}
+.btn:hover{background:var(--surface-2)}
+.btn:active{transform:translateY(1px)}
+.icon-btn{display:grid;place-items:center;width:38px;height:38px;padding:0}
+.icon-btn svg{width:17px;height:17px;stroke:var(--ink-2)}
+[data-theme="light"] .icon-moon,[data-theme="dark"] .icon-sun{display:none}
+.mobilenav{
+  display:none;width:100%;gap:6px;overflow-x:auto;
+  padding:10px 0 2px;scrollbar-width:none;
+}
+.mobilenav::-webkit-scrollbar{display:none}
+.nav-pill{
+  flex:none;font-size:12px;font-weight:600;white-space:nowrap;
+  padding:5px 11px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+}
+.nav-pill:hover{color:var(--ink);border-color:var(--ink-3)}
+.nav-pill.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-dark)}
+
+/* ---------- Layout ---------- */
+.layout{
+  max-width:1240px;margin:0 auto;padding:26px 24px 0;
+  display:grid;grid-template-columns:238px minmax(0,1fr);gap:30px;align-items:start;
+}
+.side{position:sticky;top:84px;display:flex;flex-direction:column;gap:14px}
+.stats{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;display:flex;flex-direction:column;gap:12px;
+  box-shadow:var(--shadow);
+}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat-num{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--ink);line-height:1.2}
+.stat-label{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+.progress-block{display:flex;flex-direction:column;gap:5px}
+.progress-label{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-2)}
+.progress-label b{font-family:var(--mono);font-weight:600;color:var(--accent-dark)}
+.progress-bar{height:6px;border-radius:3px;background:var(--line-2);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);border-radius:3px;transition:width .25s}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav-item{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:7px 10px;border-radius:8px;border:none;background:transparent;cursor:pointer;
+  font-size:13px;font-weight:600;color:var(--ink-2);text-align:left;
+}
+.nav-item:hover{background:var(--hover);color:var(--ink)}
+.nav-item.active{background:var(--accent-soft);color:var(--accent-dark)}
+.nav-item .count{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:500}
+.nav-item.active .count{color:var(--accent-dark)}
+.nav-item.dim{opacity:.4}
+.side-foot{display:flex;flex-direction:column;gap:6px}
+.btn-ghost{
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-3);
+  background:none;border:none;cursor:pointer;padding:4px 8px;text-align:left;
+}
+.btn-ghost:hover{color:var(--accent-dark)}
+
+/* ---------- Content ---------- */
+.status{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-size:13px;color:var(--ink-2);
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+  padding:8px 14px;margin:0 0 18px;
+}
+.status b{font-family:var(--mono);font-weight:600;color:var(--accent-dark)}
+.status button{
+  font-size:12px;font-weight:600;color:var(--accent-dark);background:none;border:none;
+  cursor:pointer;text-decoration:underline;padding:0;
+}
+.section{margin-bottom:38px;scroll-margin-top:92px}
+.section h2{
+  display:flex;align-items:baseline;gap:10px;
+  font-size:19px;font-weight:800;letter-spacing:-.01em;margin:0;
+  padding-bottom:10px;border-bottom:1px solid var(--line);
+}
+.section h2 .sec-count{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-3)}
+.subs{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.sub{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.sub-head{
+  width:100%;display:flex;align-items:center;gap:12px;
+  padding:13px 16px;border:none;background:transparent;cursor:pointer;
+  font-size:15px;font-weight:700;color:var(--ink);text-align:left;
+}
+.sub-head:hover{background:var(--hover)}
+.sub-title{flex:1;min-width:0}
+.sub-count{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--ink-2);
+  background:var(--surface-2);border-radius:999px;padding:2px 9px;
+}
+.chevron{width:16px;height:16px;color:var(--ink-3);flex:none;transition:transform .2s}
+.sub.open .chevron{transform:rotate(180deg)}
+.levels{
+  display:grid;grid-template-rows:0fr;
+  visibility:hidden;
+  transition:grid-template-rows .28s ease,visibility 0s .28s;
+}
+.sub.open .levels{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .28s ease}
+.levels-inner{min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:8px;padding:0 14px 14px}
+.lv-block{
+  border:1px solid var(--line-2);border-left:3px solid var(--lv-novice);
+  border-radius:10px;overflow:hidden;background:var(--surface);
+}
+.lv-block[data-lv="novice"]{border-left-color:var(--lv-novice)}
+.lv-block[data-lv="interm"]{border-left-color:var(--lv-interm)}
+.lv-block[data-lv="advanced"]{border-left-color:var(--lv-advanced)}
+.lv-head{
+  width:100%;display:flex;align-items:center;gap:9px;
+  padding:9px 12px;border:none;background:transparent;cursor:pointer;text-align:left;
+}
+.lv-block[data-lv="novice"] .lv-head:hover{background:var(--lv-novice-soft)}
+.lv-block[data-lv="interm"] .lv-head:hover{background:var(--lv-interm-soft)}
+.lv-block[data-lv="advanced"] .lv-head:hover{background:var(--lv-advanced-soft)}
+.lv-emoji{font-size:15px;line-height:1}
+.lv-name{font-size:13px;font-weight:700}
+.lv-block[data-lv="novice"] .lv-name{color:var(--lv-novice)}
+.lv-block[data-lv="interm"] .lv-name{color:var(--lv-interm)}
+.lv-block[data-lv="advanced"] .lv-name{color:var(--lv-advanced)}
+.lv-progress{
+  margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-3);
+}
+.lv-progress.has-asked{color:var(--accent-dark);font-weight:600}
+.lv-head .chevron{width:14px;height:14px;transition:transform .2s}
+.lv-block.open .lv-head .chevron{transform:rotate(180deg)}
+.lv-body{
+  display:grid;grid-template-rows:0fr;
+  visibility:hidden;
+  transition:grid-template-rows .28s ease,visibility 0s .28s;
+}
+.lv-block.open .lv-body{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .28s ease}
+.q-list{min-height:0;overflow:hidden;list-style:none;margin:0;padding:2px 10px 10px}
+.q-item{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px}
+.q-item:hover{background:var(--hover)}
+.q-check{
+  flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;
+  border:1.5px solid var(--ink-3);background:none;cursor:pointer;
+  display:grid;place-items:center;color:var(--check-fg);padding:0;
+  transition:transform .1s,border-color .15s,background-color .15s;
+}
+.q-check svg{width:10px;height:10px;opacity:0}
+.q-check:hover{border-color:var(--accent)}
+.q-check:active{transform:scale(.92)}
+.q-item.done .q-check{background:var(--check-bg);border-color:var(--check-bg)}
+.q-item.done .q-check svg{opacity:1}
+.q-text{flex:1;min-width:0;font-size:13.5px;overflow-wrap:anywhere}
+.q-item.done .q-text{
+  color:var(--ink-3);
+  text-decoration:line-through;
+  text-decoration-color:var(--line);
+}
+.q-copy{
+  flex:none;opacity:0;display:grid;place-items:center;
+  width:26px;height:26px;margin-top:-2px;padding:0;
+  border:1px solid transparent;border-radius:6px;background:none;cursor:pointer;color:var(--ink-3);
+}
+.q-copy svg{width:13px;height:13px}
+.q-item:hover .q-copy,.q-copy:focus-visible{opacity:1}
+.q-copy:hover{color:var(--ink);border-color:var(--line)}
+.empty{
+  padding:70px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.empty h3{margin:0;font-size:17px;font-weight:800}
+.empty p{margin:0;color:var(--ink-2);font-size:13.5px}
+.empty .btn{margin-top:10px}
+
+/* ---------- Footer ---------- */
+.foot{
+  max-width:1240px;margin:10px auto 0;padding:20px 24px 34px;
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--ink-3);
+}
+.foot p{margin:0}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,8px);
+  background:var(--ink);color:var(--bg);font-size:13px;font-weight:500;
+  padding:8px 15px;border-radius:10px;opacity:0;pointer-events:none;
+  transition:opacity .18s,transform .18s;z-index:100;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr;padding-top:18px;padding-left:16px;padding-right:16px}
+  .side{display:none}
+  .mobilenav{display:flex}
+  .topbar-inner{padding:10px 16px;gap:12px}
+  .foot{padding-left:16px;padding-right:16px}
+  .search-wrap{order:5;max-width:none;flex-basis:100%}
+}
+</style>
+</head>
+<body id="top">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <h1>Knowledge Scope</h1>
+        <p>вопросы технического интервью Android</p>
+      </div>
+    </a>
+    <div class="search-wrap">
+      <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input id="search" type="search" placeholder="Поиск по вопросам…" autocomplete="off" aria-label="Поиск по вопросам">
+      <kbd>/</kbd>
+    </div>
+    <div class="controls">
+      <div class="chips" role="group" aria-label="Фильтр по уровню">
+        <button class="chip active" data-level="all">Все</button>
+        <button class="chip" data-level="novice">🤓 Junior</button>
+        <button class="chip" data-level="interm">🧐 Middle</button>
+        <button class="chip" data-level="advanced">😎 Senior</button>
+      </div>
+      <button class="btn" id="toggleAll">Развернуть всё</button>
+      <button class="btn icon-btn" id="themeBtn" aria-label="Переключить тему" title="Переключить тему">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+    <nav class="mobilenav" id="mobilenav" aria-label="Разделы"></nav>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <div class="stats">
+      <div class="stats-grid">
+        <div><div class="stat-num" id="statSections">0</div><div class="stat-label">разделов</div></div>
+        <div><div class="stat-num" id="statSubs">0</div><div class="stat-label">подкатегорий</div></div>
+        <div><div class="stat-num" id="statQuestions">0</div><div class="stat-label">вопросов</div></div>
+      </div>
+      <div class="progress-block">
+        <div class="progress-label"><span>Задано вопросов</span><b id="progressText">0/0</b></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+    <nav class="nav" id="nav" aria-label="Разделы"></nav>
+    <div class="side-foot">
+      <button class="btn-ghost" id="resetBtn">Сбросить отметки «задано»</button>
+    </div>
+  </aside>
+  <main id="content">
+    <p class="status" id="status" hidden></p>
+    <div class="empty" id="empty" hidden>
+      <h3>Ничего не найдено</h3>
+      <p>Попробуйте другой запрос или сбросьте фильтры</p>
+      <button class="btn">Сбросить поиск и фильтры</button>
+    </div>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>🤓 Junior — базовое понимание &nbsp;·&nbsp; 🧐 Middle — уверенное владение &nbsp;·&nbsp; 😎 Senior — глубокое знание</p>
+  <p>Отметки сохраняются локально в этом браузере</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.KS_DATA = [{
+  "t": "Software Engineering Practices",
+  "s": [
+    {
+      "t": "IT fundamentals and principles",
+      "l": {
+        "novice": [
+          "Расскажи, что понимается под объектно-ориентированным программированием",
+          "Что собой представляет объект",
+          "Какие главные принципы заложены в ООП"
+        ],
+        "interm": [
+          "Пройдись по всем буквам SOLID и подкрепи каждую примером",
+          "Что даёт следование правилу DRY",
+          "Чем фабричный метод отличается от абстрактной фабрики",
+          "Для чего придумали singleton и как его распознать в коде",
+          "Когда стоит применять паттерн «строитель»",
+          "В каких случаях помогает паттерн «адаптер»",
+          "Наследование, композиция, агрегация и ассоциация — разбери каждый вид связи",
+          "Как устроен паттерн «наблюдатель» и где его используют"
+        ],
+        "advanced": [
+          "Какие семейства паттернов существуют? Назови минимум по два представителя из каждого",
+          "Перечисли три-четыре способа реализации singleton",
+          "Объясни термин «антипаттерн» и приведи несколько известных примеров"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Version Control System",
+  "s": [
+    {
+      "t": "Version Control System",
+      "l": {
+        "novice": [
+          "Зачем нужны системы контроля версий и какую роль среди них играет Git",
+          "Какие базовые команды Git ты используешь каждый день (commit, push, pull, merge и другие)",
+          "Что такое ветки и для чего их создают",
+          "Как задать автора коммитов (имя и email) для конкретного репозитория"
+        ],
+        "interm": [
+          "Что делает cherry-pick и в каких случаях выручает",
+          "Сравни merge и rebase: в чём различие и почему rebase считают рискованным",
+          "fetch против pull — в чём суть отличия",
+          "Для чего существует git stash и чем это отличается от применения патча",
+          "Что умеет git commit --amend",
+          "Как склеить несколько коммитов, если они в конце истории? А если они зарыты глубоко внутри?"
+        ],
+        "advanced": [
+          "Что даёт интерактивный rebase и какие операции в нём доступны",
+          "Как разделить один коммит на несколько и наоборот — сжать несколько в один",
+          "Какие режимы git reset существуют и чем они отличаются",
+          "В чём принципиальное отличие децентрализованных систем контроля версий от централизованных",
+          "Как подключить git hook и для чего это применяется"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Software Development Processes",
+  "s": [
+    {
+      "t": "Estimations",
+      "l": {
+        "novice": [
+          "С какой целью команды вообще оценивают задачи"
+        ],
+        "interm": [
+          "Опиши процесс, как команда оценивает новую задачу",
+          "Как подступиться к оценке задачи, с которой раньше не сталкивался"
+        ],
+        "advanced": [
+          "Какие подходы к оценке учитывают возможности конкретной команды",
+          "Что из себя представляет Planning Poker и зачем его применяют",
+          "Почему для оценки часто берут story points, а не часы или дни"
+        ]
+      }
+    },
+    {
+      "t": "Development methodologies",
+      "l": {
+        "novice": [
+          "Зачем нужны методики разработки ПО и что они из себя представляют"
+        ],
+        "interm": [
+          "В чём польза Scrum и когда его выбирают",
+          "Что называют спринтом и сколько он обычно длится",
+          "Какая роль у скрам-мастера",
+          "Какие обязанности у product owner"
+        ],
+        "advanced": [
+          "Сравни основные методики: Agile против Waterfall, Scrum против Kanban",
+          "Перечисли ритуалы Scrum и расскажи, что происходит на каждом",
+          "Из кого состоит Scrum-команда",
+          "Что такое бэклог и из чего состоит user story",
+          "Что такое PBR (Product Backlog Refinement)",
+          "Что такое User Story Mapping и зачем он нужен"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Java",
+  "s": [
+    {
+      "t": "Basics",
+      "l": {
+        "novice": [
+          "Какие дефолтные значения получают поля, если их явно не задать",
+          "Зачем нужен equals() и чем он отличается от сравнения через ==",
+          "Почему метод hashCode обычно пишут вместе с equals",
+          "Какие методы есть у класса Object",
+          "Для чего существуют enum",
+          "Чем абстрактный класс отличается от интерфейса",
+          "Перечисли модификаторы доступа и их зоны видимости",
+          "Какие категории исключений бывают",
+          "Где можно поставить final и что он меняет",
+          "Куда можно добавить static и как это меняет поведение"
+        ],
+        "interm": [
+          "В какой момент вызывается finalize",
+          "Что возвращает hashCode(), если его не переопределяли",
+          "Для чего нужен метод clone",
+          "Что делает ключевое слово transient",
+          "Чем Object отличается от Class",
+          "Что такое сериализация и какими способами её можно сделать",
+          "Что разрешено помещать внутрь интерфейса, в том числе начиная с Java 8",
+          "Какие бывают вложенные и внутренние классы",
+          "Чем checked-исключения отличаются от unchecked",
+          "Что значит immutable-класс и как его создать",
+          "Что такое autoboxing и unboxing и зачем они появились",
+          "Разведи понятия final, finally и finalize",
+          "finalize() против System.gc() — в чём разница",
+          "Что дают generics, что такое wildcard и чем super отличается от extends в дженериках",
+          "Какие правила связывают equals и hashCode между собой",
+          "Как работает equals из коробки, без переопределения",
+          "Почему после изменения equals нужно переписать и hashCode"
+        ],
+        "advanced": [
+          "Что называют глубоким клонированием",
+          "Почему wait, notify и notifyAll лежат в Object, хотя кажутся потоковыми методами",
+          "Почему строки в Java сделали неизменяемыми",
+          "Что такое пул строк и целых чисел",
+          "Что делает метод String.intern()",
+          "Зачем нужны статические блоки инициализации",
+          "Как через Reflection API добраться до приватных полей объекта",
+          "Объясни ковариантность, контравариантность и инвариантность",
+          "Что такое Externalizable и чем он отличается от Serializable"
+        ]
+      }
+    },
+    {
+      "t": "Collections",
+      "l": {
+        "novice": [
+          "Назови ключевые интерфейсы коллекций и их назначение",
+          "Как устроен ArrayList внутри? Что происходит при вставке в середину, насколько вырастет массив после добавления 11-го элемента к десяти и освобождается ли память старого массива",
+          "Что лежит в основе LinkedList, чем он отличается от ArrayList и что меняется при добавлении элемента",
+          "Может ли в HashMap быть null в ключе или значении и чей хэш-код вычисляется при вставке",
+          "В чём специфика HashSet и на чём он построен"
+        ],
+        "interm": [
+          "Чем Collection отличается от Collections",
+          "Почему Map не является наследником Collection",
+          "Что такое Iterator, какие у него методы и зачем он нужен",
+          "Какой стартовый размер у ArrayList",
+          "Как понять, с какого конца начинать обход LinkedList",
+          "Разбери по шагам работу метода put у HashMap: что такое бакет и как разруливаются коллизии",
+          "В чём идея LinkedHashMap",
+          "Сравни сложность вставки и поиска у основных коллекций"
+        ],
+        "advanced": [
+          "Массив против ArrayList — в чём отличия",
+          "Что такое loadFactor в HashMap и на что он влияет? Как считается индекс ячейки и когда бакет превращается в дерево",
+          "На базе чего работает HashSet и что лежит в value, если в основе Map",
+          "Как дерево балансируется и что случится, если добавлять элементы строго по возрастанию",
+          "Зачем нужны NavigableSet и NavigableMap",
+          "Что такое WeakHashMap и чем он отличается от обычной HashMap"
+        ]
+      }
+    },
+    {
+      "t": "Concurrency",
+      "l": {
+        "novice": [
+          "Thread против Runnable — что из чего лучше и как выбрать",
+          "Как запустить поток в Java",
+          "Что такое монитор объекта",
+          "Где ставится synchronized и как он действует",
+          "Как согласовать работу двух потоков через методы Object"
+        ],
+        "interm": [
+          "Как синхронизировать статические методы",
+          "В чём отличие synchronized(Obj.getClass()) от synchronized(Obj.class)",
+          "Что произойдёт, если вызвать run() напрямую вместо start()",
+          "Для чего нужен Callable",
+          "Какие средства существуют для приостановки и остановки потока",
+          "Сравни synchronized и Lock",
+          "Где применяется volatile и что он гарантирует",
+          "Слышал ли про семафор и другие синхронизаторы — какую задачу они решают",
+          "Зачем нужны Executors",
+          "В каких ситуациях возникает deadlock и как с ним бороться",
+          "Когда появляется race condition и как его избежать"
+        ],
+        "advanced": [
+          "Как устроены атомарные классы и чем они лучше или хуже volatile",
+          "Разбери синхронизаторы: Semaphore, CountDownLatch, CyclicBarrier, Exchanger, Phaser",
+          "Какие пулы потоков бывают, как их запустить и остановить и что случится с незавершёнными задачами после shutdown",
+          "Сравни concurrent-коллекции: CopyOnWriteArrayList и synchronizedList, ConcurrentHashMap и synchronizedMap",
+          "Почему нельзя пользоваться Thread.stop() и как корректно завершать поток",
+          "Что входит в пакет java.util.concurrent"
+        ]
+      }
+    },
+    {
+      "t": "Memory",
+      "l": {
+        "novice": [
+          "Как в целом организована память JVM",
+          "Что такое сборщик мусора и по какому принципу он работает",
+          "Что хранится в стеке, а что в куче",
+          "Что такое утечка памяти"
+        ],
+        "interm": [
+          "Почему не всё кладётся в кучу и зачем нужен стек",
+          "Что сделает GC с объектами, которые ссылаются друг на друга",
+          "Какие типы ссылок есть и как они влияют на сборку мусора",
+          "Как устроить утечку памяти в Android и почему с точки зрения GC она возникает"
+        ],
+        "advanced": [
+          "Перечисли все области памяти JVM",
+          "Куда именно попадает только что созданный объект",
+          "По каким признакам объект переезжает из Young в Old",
+          "Что такое GC roots"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Kotlin",
+  "s": [
+    {
+      "t": "Basics (differences from Java)",
+      "l": {
+        "novice": [
+          "Как в Kotlin устроена защита от null",
+          "Чем отличается наследование классов от Java",
+          "Сравни модификаторы видимости в Java и Kotlin",
+          "Чем when отличается от switch-case"
+        ],
+        "interm": [
+          "Что даёт data class по сравнению с POJO",
+          "Как вызывать Kotlin-расширения из Java-кода",
+          "Чем коллекции Kotlin отличаются и зачем их разбили на изменяемые и неизменяемые",
+          "Как в Kotlin проверить тип объекта — аналог instanceof из Java",
+          "В чём разница обработки исключений между языками",
+          "Возможна ли взаимная интеграция: вызов Kotlin из Java и наоборот",
+          "Как устроены конструкторы в Kotlin по сравнению с Java",
+          "Что такое свойства и backing field вместо полей",
+          "Как работают параметры по умолчанию в функциях и конструкторах",
+          "Чем Any отличается от Object"
+        ],
+        "advanced": [
+          "Чем заменяется тернарный оператор в Kotlin",
+          "Разбери ==, === и equals",
+          "Чем дженерики Kotlin отличаются от Java",
+          "Что такое platform types",
+          "Когда в Kotlin используются примитивы, а когда происходит автобоксинг",
+          "Что такое declaration-site variance и как он выглядит из Java"
+        ]
+      }
+    },
+    {
+      "t": "Kotlin-only features",
+      "l": {
+        "novice": [
+          "Разница между var и val, плюс зачем нужен const",
+          "Как наследовать класс в Kotlin",
+          "Для чего существуют типы Unit и Any",
+          "Как в when объединить несколько условий, дающих один результат"
+        ],
+        "interm": [
+          "Что такое функции высшего порядка",
+          "Сравни scope-функции apply, with, also, run и let",
+          "Что такое companion object",
+          "Что делает vararg",
+          "Что такое extension-функции",
+          "Что такое Элвис-оператор и откуда такое название",
+          "Что такое SAM-конверсии и зачем нужен функциональный интерфейс",
+          "Как узнать, что lateinit-свойство уже инициализировано",
+          "Чем lateinit отличается от lazy",
+          "Как в Kotlin получить ссылку на функцию",
+          "Что такое sealed-класс и когда он полезен",
+          "Что такое inline-функции и зачем нужны модификаторы crossinline и noinline",
+          "Что даёт reified и почему это работает лишь в inline-функциях",
+          "Что такое trailing lambda и где оно применяется"
+        ],
+        "advanced": [
+          "Чем IntArray отличается от Array<Int>",
+          "Что такое делегированные свойства и какой параметр у lazy",
+          "Зачем нужны ключевые слова infix и operator",
+          "Что такое Sequence и в чём её выгода",
+          "Для чего существуют аннотации @JvmStatic, @JvmOverloads и @JvmField",
+          "Чем в Kotlin заменяется try-with-resources",
+          "Что такое typealias",
+          "Что такое деструктурирующее присваивание",
+          "Зачем в языке есть тип Nothing",
+          "Что такое inline-класс",
+          "Можно ли написать расширение для интерфейса или функционального типа",
+          "Как компилируются object и companion object"
+        ]
+      }
+    },
+    {
+      "t": "Coroutines",
+      "l": {
+        "novice": [
+          "Какую проблему решают корутины и почему не обойтись обычными потоками",
+          "Как переключиться между потоками в корутине",
+          "Можно ли выполнить suspend-запрос к сети прямо на главном потоке",
+          "Какими способами запускается корутина (launch, async, runBlocking)",
+          "Как с помощью корутин реализовать одноразовое событие, например показать тост",
+          "Что означает ключевое слово suspend",
+          "Сравни RxJava и корутины: плюсы, минусы и что выбрать"
+        ],
+        "interm": [
+          "Что такое корутин-билдеры и какие они бывают",
+          "Зачем нужен coroutine scope и какие виды бывают",
+          "Почему советуют избегать GlobalScope",
+          "Какие диспетчеры есть и для чего каждый",
+          "Как обрабатываются ошибки в корутинах и как их поймать",
+          "Что такое Job и Deferred",
+          "Как выполнить два запроса параллельно",
+          "Как устроены viewModelScope и lifecycleScope и как сделать свой аналог",
+          "Что входит в coroutine context",
+          "Какие бывают Flow — холодные и горячие. Какие операторы использовал",
+          "Как на корутинах и Flow собрать живой поиск: пользователь вводит текст и получает результат из сети",
+          "StateFlow против SharedFlow: чем отличаются и где что применять",
+          "Что такое структурная конкурентность и зачем она"
+        ],
+        "advanced": [
+          "Чем scope отличается от context",
+          "Как написать собственный scope",
+          "Что такое SupervisorJob и когда он нужен",
+          "Как компилятор превращает suspend-функции в state machine",
+          "Как подружить корутины с RxJava и Retrofit",
+          "Как обернуть любой колбэк в корутину",
+          "На каком диспетчере по умолчанию стартует async",
+          "Когда всплывает ошибка из async",
+          "Для чего существует Unconfined-диспетчер",
+          "Чем lifecycleScope отличается от viewLifecycleOwner.lifecycleScope во фрагменте",
+          "Почему нельзя ловить CancellationException в try-catch",
+          "Плюсы и минусы корутин по сравнению с RxJava",
+          "Как работать с Flow",
+          "Для чего нужен Channel"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Android Core",
+  "s": [
+    {
+      "t": "Fundamentals",
+      "l": {
+        "novice": [
+          "Что такое класс R",
+          "Разбери единицы измерения px, dp, sp",
+          "Для чего каталог res и какие в нём есть подпапки",
+          "Что такое манифест и какие компоненты там объявляются",
+          "Что такое Context и зачем он нужен"
+        ],
+        "interm": [
+          "Как работают рантайм-разрешения и что было до API 23",
+          "Как подключить диплинки",
+          "Что такое Doze-режим и на что он влияет",
+          "Из чего состоит манифест",
+          "Как наследуются стили и темы",
+          "Можно ли комбинировать квалификаторы ресурсов (язык, разрешение) и в каком порядке они применяются? Как поддерживать несколько локалей",
+          "Что такое ANR и как его избежать",
+          "Сколько application-классов может быть в манифесте",
+          "Сравни Parcelable и Serializable",
+          "Чем контекст приложения отличается от контекста активити",
+          "Чем отличаются контексты двух разных активити",
+          "Какими способами можно поддержать тёмную тему"
+        ],
+        "advanced": [
+          "Назови актуальную версию Android и по три-четыре нововведения из последних двух релизов",
+          "Для чего нужен App Standby",
+          "Как разруливаются конфликты при мерже манифестов",
+          "Что такое scoped storage",
+          "Как Android ранжирует процессы по приоритету",
+          "Что такое edge-to-edge и предиктивный жест «назад»"
+        ]
+      }
+    },
+    {
+      "t": "Activity, Fragments",
+      "l": {
+        "novice": [
+          "Что такое Activity",
+          "Перечисли методы жизненного цикла Activity",
+          "Как раньше получали результат из другой Activity",
+          "Как открыть Activity явным и неявным способом",
+          "Что такое Intent и как через него передать данные",
+          "Что такое back stack",
+          "Что такое Fragment",
+          "Назови этапы жизненного цикла фрагмента",
+          "Как добавить фрагмент: статически и динамически",
+          "Чем add отличается от replace при работе с фрагментами",
+          "Что такое onSaveInstanceState и когда он вызывается"
+        ],
+        "interm": [
+          "В чём разница между onStart и onResume",
+          "Каков лимит размера Intent и каким требованиям должны отвечать передаваемые объекты",
+          "Что такое intent-filter и какие параметры он содержит",
+          "Всегда ли срабатывает onDestroy",
+          "Разбери флаги запуска Activity: singleTop, clearTop и другие",
+          "Что такое task и как он связан с back stack",
+          "Для чего нужен PendingIntent",
+          "Что случится, если onCreateView вернёт null вместо разметки",
+          "Почему фрагментам не рекомендуется передавать аргументы через конструктор",
+          "Можно ли вложить фрагмент во фрагмент и как",
+          "Зачем транзакциям фрагментов теги",
+          "Синхронен ли commit фрагментов и какой вариант асинхронный",
+          "Как связать события фрагмента с Activity",
+          "Какие методы жизненного цикла сработают, если вызвать finish в onCreate? А в onStart",
+          "Как вычистить несколько Activity или фрагментов из back stack разом",
+          "Что такое поддержка нескольких back stack у фрагментов"
+        ],
+        "advanced": [
+          "Как сделать полупрозрачную Activity и зачем это нужно",
+          "Для чего нужна FragmentFactory",
+          "Как работает Activity Result API и есть ли он у фрагментов",
+          "Как taskAffinity влияет на флаги запуска",
+          "Что делает commitAllowingStateLoss и чем это опасно",
+          "Когда используется isFinishing",
+          "Для чего нужен mutable PendingIntent и как его создать"
+        ]
+      }
+    },
+    {
+      "t": "State handling",
+      "l": {
+        "novice": [
+          "Что происходит с Activity при повороте экрана",
+          "Что такое SharedPreferences",
+          "Что такое Bundle и как им пользоваться"
+        ],
+        "interm": [
+          "Как запретить поворот экрана",
+          "Как обновить данные без пересоздания Activity",
+          "Что происходит с жизненным циклом при повороте: одна Activity, две Activity, Activity с фрагментом",
+          "Какие есть механизмы сохранения состояния",
+          "Что такое Jetpack DataStore и чем он лучше SharedPreferences"
+        ],
+        "advanced": [
+          "Почему не стоит вручную обрабатывать смену конфигурации",
+          "В какой момент вызывается onConfigurationChanged",
+          "Восстановится ли стек Activity, если система убила приложение, а пользователь вернулся",
+          "Что нужно, чтобы стандартные View переживали смену конфигурации"
+        ]
+      }
+    },
+    {
+      "t": "Background work",
+      "l": {
+        "novice": [
+          "Что такое Service, в каком потоке он работает и какие виды бывают",
+          "Как устроены Handler и Looper и что такое HandlerThread",
+          "Зачем был нужен IntentService",
+          "Чем плох AsyncTask"
+        ],
+        "interm": [
+          "Что умеет WorkManager: условия запуска и периодичность",
+          "Какие способы доставки данных из сервиса в UI",
+          "Опиши жизненный цикл Service",
+          "Чем startService отличается от bindService",
+          "Как стартовать сервис на Android 8+ и что такое Foreground Service",
+          "Задача: обычный Service качает картинку по URL и падает на старте — в чём причина",
+          "Что значат флаги STICKY и NON_STICKY"
+        ],
+        "advanced": [
+          "Как выполнять долгие задачи в WorkManager",
+          "Поддерживает ли WorkManager корутины и RxJava",
+          "Как передать параметры в WorkManager и получить результат",
+          "Для чего существует DownloadManager",
+          "Как вынести Service в отдельный процесс",
+          "Все способы обмена данными между сервисом и UI: Broadcast, Binder, Messenger, AIDL",
+          "Что делает флаг START_REDELIVER_INTENT",
+          "Что внутри использует WorkManager на разных версиях Android"
+        ]
+      }
+    },
+    {
+      "t": "Views",
+      "l": {
+        "novice": [
+          "Назови базовые контейнеры View",
+          "Как следить за вводом в EditText",
+          "Чем RecyclerView превосходит ListView, из чего он состоит и какие LayoutManager бывают",
+          "Зачем нужен DiffUtil, как он работает, какие методы у DiffUtil.Callback и можно ли обойтись без него",
+          "Что такое адаптер в RecyclerView и за что он отвечает"
+        ],
+        "interm": [
+          "В чём суть ConstraintLayout и какой его главный атрибут",
+          "Что такое CoordinatorLayout, а также bias, guideline и chain",
+          "Какие конструкторы нужно реализовать у кастомной View",
+          "Опиши жизненный цикл View",
+          "Чем invalidate отличается от requestLayout",
+          "Чего не стоит делать в onDraw",
+          "Зачем нужен namespace tools",
+          "Чем src отличается от background у ImageView и что делает scaleType",
+          "Зачем нужен ViewHolder и как он экономит память",
+          "Как поддержать несколько типов ячеек в RecyclerView",
+          "Чем VectorDrawable лучше растра и как менять его цвет",
+          "Что такое 9-patch и какие у него зоны",
+          "Что такое View Binding",
+          "Какими способами создаётся кастомная View",
+          "Опиши шаги создания своей View, например аналоговых часов"
+        ],
+        "advanced": [
+          "Что такое baseline, barrier и flow в ConstraintLayout",
+          "Что такое behaviour в CoordinatorLayout, как его задать и что такое anchor",
+          "Что такое Canvas и как на нём рисовать",
+          "Что такое measure pass и как выбирать layout по производительности",
+          "Какие бывают MeasureSpec",
+          "Как View подхватывает стиль из темы, например editTextStyle",
+          "Разница между onInterceptTouchEvent и onTouchEvent",
+          "Для чего нужен ViewStub",
+          "Как внутри устроен LayoutManager: отрисовка и скроллинг",
+          "Зачем нужен AsyncDifferConfig"
+        ]
+      }
+    },
+    {
+      "t": "Compose",
+      "l": {
+        "novice": [
+          "Для чего был создан Jetpack Compose",
+          "В чём отличие View от Compose",
+          "Как создать простой текстовый элемент в Compose",
+          "Что такое Composable-функция и как она работает",
+          "Что такое аннотация @Composable и как её правильно объявить",
+          "Как хранить и изменять состояние интерфейса в Compose (remember и mutableStateOf)",
+          "Какую роль выполняет Modifier и как с его помощью изменить внешний вид или поведение элемента",
+          "Чем отличаются Column, Row и Box и когда использовать каждый",
+          "Что происходит с интерфейсом при изменении состояния и что такое recomposition"
+        ],
+        "interm": [
+          "Как работает LaunchedEffect и для чего он используется",
+          "Чем отличаются by и = при работе со State",
+          "Чем отличается rememberSaveable от remember и когда его следует использовать",
+          "Для чего нужны stateOf и derivedStateOf и в чём их отличие",
+          "Как запустить корутину по нажатию кнопки или другому событию внутри Composable-функции",
+          "Как с помощью AndroidView встроить классический View (например, TextView) в Compose-интерфейс",
+          "Как интегрировать Compose-интерфейс в существующее View-приложение и какие компоненты понадобятся (например, ComposeView)",
+          "Что такое SideEffect и чем он отличается от LaunchedEffect",
+          "Что такое DisposableEffect и для чего он используется"
+        ],
+        "advanced": [
+          "Как отлаживать проблемы с рекомпозицией или производительностью в Compose",
+          "Как улучшить производительность с помощью Baseline Profiles",
+          "Что такое stability и strong skipping в Compose",
+          "Как работает produceState и для чего он нужен",
+          "Что такое SnapshotFlow и где его применяют",
+          "Как устроено snapshot state в Compose"
+        ]
+      }
+    },
+    {
+      "t": "Broadcast Receivers",
+      "l": {
+        "novice": [
+          "Что такое BroadcastReceiver и где его применяют",
+          "Какими способами регистрируется BroadcastReceiver"
+        ],
+        "interm": [
+          "Локальные и глобальные broadcast: в чём разница и что такое LocalBroadcastManager",
+          "В каких методах жизненного цикла регистрировать и снимать receiver",
+          "Почему многие системные broadcast нельзя прописывать в манифесте"
+        ],
+        "advanced": [
+          "Как открыть Activity из BroadcastReceiver, в том числе после Android 10",
+          "Каков таймаут onReceive",
+          "Что такое упорядоченные broadcast",
+          "Можно ли требовать разрешения у получателя broadcast"
+        ]
+      }
+    },
+    {
+      "t": "Content Providers",
+      "l": {
+        "novice": [
+          "Что такое ContentProvider и где он применяется",
+          "Как через ContentProvider делятся данными"
+        ],
+        "interm": [
+          "Чем ContentProvider отличается от ContentResolver",
+          "Доступ к каким данным возможен только через ContentProvider"
+        ],
+        "advanced": [
+          "Когда обязательно писать собственный провайдер",
+          "ContentProvider против SQLiteOpenHelper",
+          "Для чего нужен ContentObserver"
+        ]
+      }
+    },
+    {
+      "t": "Platform",
+      "l": {
+        "novice": [
+          "Что такое APK и что у него внутри",
+          "Что такое App Bundle",
+          "Зачем нужен ProGuard и почему после него нужно тщательно тестировать",
+          "Процесс и поток — определения и отличия",
+          "Что такое ключ подписи и зачем он нужен"
+        ],
+        "interm": [
+          "Что такое AAR",
+          "Из каких этапов состоит сборка APK",
+          "Что такое dynamic feature и как её подключить",
+          "Как восстановить стектрейс после обфускации и как исключить класс из ProGuard",
+          "Что такое Instant App",
+          "Что такое upload key и можно ли сменить ключ подписи",
+          "Зачем нужен multidex и почему он появился"
+        ],
+        "advanced": [
+          "Чем JIT отличается от AOT",
+          "Чем ART отличается от Dalvik",
+          "Что такое Project Treble и Project Mainline",
+          "Чем различаются схемы подписи V1–V4",
+          "Что такое IPC и на чём он основан",
+          "Что такое Zygote",
+          "Как устроена память в Android и как работает GC"
+        ]
+      }
+    },
+    {
+      "t": "Gradle",
+      "l": {
+        "novice": [
+          "Как подключаются зависимости в проекте",
+          "Чем buildType отличается от productFlavor",
+          "Чем compileSdk отличается от targetSdk",
+          "Что будет при установке приложения на устройство с версией ниже minSdk"
+        ],
+        "interm": [
+          "На каком языке пишутся gradle-файлы",
+          "Из каких блоков состоит build.gradle",
+          "Чем implementation отличается от api",
+          "Зачем нужны sourceSets",
+          "Как добавить модуль в проект",
+          "Как собрать проект из командной строки",
+          "Что такое composite build",
+          "Что такое version catalog и файл libs.versions.toml"
+        ],
+        "advanced": [
+          "Какие ещё системы сборки существуют и чем отличаются от Gradle",
+          "Что такое Kotlin DSL для Gradle",
+          "Как объединяются sourceSets разных модулей и как разложить версии файлов по ним",
+          "Как подключить зависимость только для конкретного flavor или buildType",
+          "Как написать собственный Gradle-скрипт или плагин",
+          "Как опубликовать библиотеку локально и подключить её",
+          "Чем KSP отличается от KAPT и почему на него переходят"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Android Features",
+  "s": [
+    {
+      "t": "Notifications",
+      "l": {
+        "novice": [
+          "Что такое уведомления и зачем они",
+          "Как показать уведомление"
+        ],
+        "interm": [
+          "Для чего нужны каналы уведомлений",
+          "Что такое группы уведомлений",
+          "Какие действия можно привязать к уведомлению: tap, кнопки, ответ",
+          "Какие стили оформления уведомлений существуют"
+        ],
+        "advanced": [
+          "Какие уровни важности уведомлений бывают",
+          "Можно ли сделать уведомление с кастомной разметкой и какие у этого ограничения",
+          "Как интегрировать Firebase push-уведомления"
+        ]
+      }
+    },
+    {
+      "t": "Animations",
+      "l": {
+        "novice": [
+          "Какими способами можно анимировать View",
+          "Какие бывают аниматоры",
+          "Что такое tween-анимации и как их задают"
+        ],
+        "interm": [
+          "Что такое Interpolator и зачем он",
+          "Сравни ValueAnimator и ObjectAnimator",
+          "Какие методы обязаны быть у объекта, чтобы ObjectAnimator заработал",
+          "Какие библиотеки для анимаций знаешь"
+        ],
+        "advanced": [
+          "Что такое MotionLayout",
+          "Как анимируются векторные изображения",
+          "Что такое Transition-анимации"
+        ]
+      }
+    },
+    {
+      "t": "Maps",
+      "l": {
+        "novice": [
+          "Как встроить Google Maps в приложение",
+          "Как поставить маркер на карту",
+          "Как определить местоположение устройства и какие способы"
+        ],
+        "interm": [
+          "Как работает requestLocationUpdates",
+          "Как нарисовать маршрут между двумя точками",
+          "Какие особенности карт на разных устройствах"
+        ],
+        "advanced": [
+          "Как распознать поддельные координаты",
+          "Как кластеризовать маркеры",
+          "Как кастомизировать стиль карты"
+        ]
+      }
+    },
+    {
+      "t": "Media (Player, Camera)",
+      "l": {
+        "novice": [
+          "Как сделать, чтобы приложение было камерой по умолчанию для фото и видео",
+          "Можно ли задать, какая камера открывается первой",
+          "Можно ли ограничить длительность записи видео",
+          "Можно ли сделать свой интерфейс камеры",
+          "Как воспроизводить аудио и какие плееры бывают"
+        ],
+        "interm": [
+          "Какие API для камеры есть и чем отличаются",
+          "Какой класс отвечает за запись видео",
+          "Чем ExoPlayer лучше стандартного плеера",
+          "Что такое режим «картинка в картинке»",
+          "Кодек, кодер и декодер — разбери эти понятия"
+        ],
+        "advanced": [
+          "Что такое hardware level в Camera2 и какие уровни есть",
+          "Почему превью камеры на некоторых девайсах перевёрнуто и как это чинить",
+          "Как растянуть превью камеры на весь экран",
+          "Сколько плееров можно запустить одновременно",
+          "Зачем освобождать плеер после использования",
+          "Для чего нужны MediaCodec и MediaExtractor",
+          "Зачем в MPEG-4 нужны ключевые кадры"
+        ]
+      }
+    },
+    {
+      "t": "Bluetooth (BLE)",
+      "l": {
+        "novice": [
+          "Что такое MAC-адрес",
+          "Как Bluetooth устроен в Android"
+        ],
+        "interm": [
+          "Зачем нужен случайный MAC-адрес",
+          "Чем классический Bluetooth отличается от BLE",
+          "Что такое сервисы и характеристики в GATT"
+        ],
+        "advanced": [
+          "Можно ли выполнять несколько Bluetooth-операций одновременно",
+          "Какие ограничения у сканирования устройств",
+          "Какие разрешения нужны для сканера",
+          "Где в BLE применяются битовые операции"
+        ]
+      }
+    },
+    {
+      "t": "InApp purchases",
+      "l": {
+        "novice": [
+          "Что такое встроенные покупки и какие их виды бывают",
+          "Как в целом реализуются покупки внутри приложения"
+        ],
+        "interm": [
+          "Чем подписка отличается от разовой покупки",
+          "Что такое Google Play Billing Library и с какими классами приходится работать"
+        ],
+        "advanced": [
+          "Как организовать тестовые покупки",
+          "Как вернуть пользователю ранее купленные товары",
+          "Как определить, что покупка уже была совершена: локальный кэш и проверка на сервере"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Technologies",
+  "s": [
+    {
+      "t": "Network",
+      "l": {
+        "novice": [
+          "Как с Retrofit отправить GET и POST",
+          "Что такое JSON",
+          "Какие библиотеки парсят JSON в объекты",
+          "Назови основные коды ответов HTTP",
+          "Чем JSON отличается от XML",
+          "Зачем нужны аннотации @SerializedName и @Expose",
+          "На каком HTTP-клиенте работает Retrofit",
+          "Как создать Retrofit-сервис в проекте"
+        ],
+        "interm": [
+          "Что такое интерцепторы",
+          "Как отправить запрос с телом через Retrofit",
+          "Чем @Query отличается от @Path",
+          "Что такое REST и какие у него принципы"
+        ],
+        "advanced": [
+          "Как добавить заголовки к запросам в Retrofit",
+          "SOAP против REST",
+          "Чем network interceptors отличаются от application interceptors",
+          "Как загрузить файл через Retrofit в теле POST",
+          "Как организовать обновление refresh token",
+          "Что такое Protobuf и в чём его плюсы",
+          "Что такое SSL pinning и как подложить сертификат"
+        ]
+      }
+    },
+    {
+      "t": "Dagger",
+      "l": {
+        "novice": [
+          "Что такое внедрение зависимостей, зачем оно и как реализуется",
+          "Какие библиотеки для DI знаешь",
+          "Как выполняется инъекция в Dagger 2",
+          "Зачем нужен принцип инверсии управления",
+          "Какие способы реализации IoC бывают",
+          "С какими аннотациями Dagger 2 работал",
+          "Чем Dagger 2 отличается от Koin"
+        ],
+        "interm": [
+          "Зачем нужна аннотация @Provides",
+          "Что такое модуль и компонент",
+          "Как инжектить зависимости без модуля",
+          "Что нельзя внедрить без модуля",
+          "Что такое скоупы, какой скоуп действует по умолчанию и какие бывают",
+          "Зачем нужны квалификаторы",
+          "Чем сабкомпонент отличается от component dependencies",
+          "Как используется Lazy",
+          "Чем @Binds отличается от @Provides",
+          "Для чего нужна аннотация @BindsInstance"
+        ],
+        "advanced": [
+          "Зачем нужны статические @Provides",
+          "Разбери аннотации @Binds и @BindsInstance",
+          "Зачем нужны @IntoMap и @IntoSet",
+          "Можно ли уничтожить граф зависимостей в Dagger 2",
+          "Чем Dagger 2 отличается от Hilt",
+          "Что делают @AssistedInject и @AssistedFactory",
+          "Как сохранить граф зависимостей при повороте экрана",
+          "Что такое Dagger Android",
+          "Что происходит при вызове component.inject(this)",
+          "Как Hilt упрощает Dagger 2 и для чего нужны @HiltAndroidApp и @AndroidEntryPoint"
+        ]
+      }
+    },
+    {
+      "t": "Koin",
+      "l": {
+        "novice": [
+          "Что такое DI, зачем и как реализуется",
+          "Какие DI-библиотеки знаешь",
+          "Как получить зависимость через Koin",
+          "Зачем нужен принцип IoC",
+          "Способы реализации IoC с примерами",
+          "Отличия Koin от Dagger 2",
+          "Какой паттерн лежит в основе Koin и чем это отличается от классического DI"
+        ],
+        "interm": [
+          "Что такое модуль в Koin",
+          "Чем single отличается от factory",
+          "Что произойдёт, если Koin не найдёт зависимость",
+          "Что такое квалификатор и как его задать",
+          "Как создать ViewModel через Koin",
+          "Какие скоупы есть и чем отличаются",
+          "Можно ли добавить зависимость в граф на лету",
+          "Что такое link scope и как он работает",
+          "Могут ли два скоупа ссылаться друг на друга",
+          "Как привязать скоуп к времени жизни объекта"
+        ],
+        "advanced": [
+          "Как сделать собственный скоуп",
+          "Как передать параметры во ViewModel",
+          "Зачем нужен оператор bind",
+          "Что делает функция declare()",
+          "Как юнит-тестами проверить полноту модуля",
+          "Как работает activityRetainedScope",
+          "Что такое KoinApplication и GlobalContext",
+          "Сравни KoinComponent, KoinScopeComponent и AndroidScopeComponent",
+          "Можно ли подгружать и выгружать модули Koin в рантайме"
+        ]
+      }
+    },
+    {
+      "t": "RxJava",
+      "l": {
+        "novice": [
+          "Что делают subscribeOn и observeOn и как сменить поток",
+          "Что такое Single, Maybe и Completable",
+          "Как создать Observable, хотя бы одним способом",
+          "Чем Observer отличается от Observable",
+          "Какие методы есть у Observer",
+          "Что делают операторы map, flatMap и filter",
+          "Чем холодные источники отличаются от горячих, с примерами"
+        ],
+        "interm": [
+          "Какие планировщики бывают и чем отличаются",
+          "Что будет, если subscribeOn и observeOn вызвать несколько раз",
+          "Как превратить Single в Completable",
+          "Observer, Subscriber, Disposable и Subscription: всегда ли нужно отписываться и чем грозит утечка",
+          "Вызовется ли onComplete после onError",
+          "Какие бывают Subject",
+          "Сравни flatMap, concatMap и switchMap с примерами",
+          "merge против concat, и что будет с concat на бесконечном источнике",
+          "Как на RxJava сделать живой поиск с запросом в сеть"
+        ],
+        "advanced": [
+          "Как запустить несколько запросов параллельно",
+          "Чем processor отличается от subject",
+          "Разбери ConnectableObservable: publish, refCount, replay, connect и autoconnect",
+          "Что такое Flowable и какие стратегии backpressure есть",
+          "Откуда берётся backpressure и каков лимит буфера у observeOn",
+          "Что даёт compose() и Transformers",
+          "Для чего нужны blockingGet и blockingAwait",
+          "Что такое amb и когда его применяют",
+          "Что такое Relay",
+          "Как планировщики устроены внутри"
+        ]
+      }
+    },
+    {
+      "t": "Database",
+      "l": {
+        "novice": [
+          "Что такое база данных",
+          "Первичный и внешний ключ — в чём разница",
+          "Чем БД отличается от таблицы",
+          "Какие виды связей между таблицами бывают",
+          "Что такое транзакция и зачем она нужна"
+        ],
+        "interm": [
+          "Какие библиотеки для БД в Android знаешь",
+          "Что такое Room и как с ним работать: @Entity и @Dao",
+          "Как выполняется миграция БД",
+          "Что такое нормальные формы",
+          "Как реализуется связь many-to-many",
+          "Что такое Cursor и как им пользоваться",
+          "Что такое NoSQL и какие примеры знаешь"
+        ],
+        "advanced": [
+          "Как в Room выбирать данные из нескольких таблиц",
+          "Можно ли подписаться на изменения данных в Room",
+          "Можно ли обращаться к БД из главного потока",
+          "Какие бывают JOIN",
+          "Виды нереляционных БД с примерами",
+          "Что такое индекс в БД, его плюсы и минусы"
+        ]
+      }
+    },
+    {
+      "t": "Images loading",
+      "l": {
+        "novice": [
+          "Как загрузить картинку из сети",
+          "Чем растровые изображения отличаются от векторных"
+        ],
+        "interm": [
+          "Сравни библиотеки загрузки изображений: Glide, Coil, Picasso, Fresco",
+          "Как устроены кэши изображений в Glide и Coil",
+          "Что такое downsampling и как не словить OOM на больших картинках"
+        ],
+        "advanced": [
+          "Чем RGB_565 отличается от ARGB_8888",
+          "Поддерживается ли WebP в Android и чем этот формат хорош",
+          "Как изменить размер Bitmap",
+          "Как работать с BitmapFactory и зачем нужен mutate()"
+        ]
+      }
+    },
+    {
+      "t": "Navigation",
+      "l": {
+        "novice": [
+          "Какие библиотеки навигации знаешь",
+          "Как в Cicerone открыть Activity или фрагмент с аргументами",
+          "Как в общих чертах работает Navigation Component"
+        ],
+        "interm": [
+          "Как Cicerone устроен внутри и из каких частей состоит",
+          "Как настроить навигацию с нижним меню",
+          "Что такое поддержка нескольких back stack у фрагментов",
+          "Как делать вложенные графы навигации и зачем",
+          "Что такое Safe Args и как им пользоваться",
+          "Как подключить диплинки в Navigation Component"
+        ],
+        "advanced": [
+          "Как сделать навигацию вообще без библиотек",
+          "Как Cicerone открывает цепочку экранов",
+          "Зачем нужен FragmentStrictMode",
+          "Как выстроить навигацию при фича-модульности"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Architecture",
+  "s": [
+    {
+      "t": "Basics difference",
+      "l": {
+        "novice": [
+          "Что такое архитектура приложения, зачем она и приведи пример",
+          "Чем MVVM отличается от MVP",
+          "Каким критериям должна соответствовать хорошая архитектура"
+        ],
+        "interm": [
+          "Какие архитектурные подходы бывают",
+          "В чём идея гайда по архитектуре от Google"
+        ],
+        "advanced": [
+          "Какие слабые места у MVC",
+          "Что такое репозиторий и как в нём организовать кэширование"
+        ]
+      }
+    },
+    {
+      "t": "MVVM",
+      "l": {
+        "novice": [
+          "Как работает MVVM, его сильные и слабые стороны",
+          "Какие основные компоненты входят в AAC",
+          "Зачем нужна LiveData",
+          "Чем LiveData отличается от Flow"
+        ],
+        "interm": [
+          "Переживает ли ViewModel поворот экрана",
+          "Как получить ViewModel",
+          "Что такое общий ViewModel",
+          "Как сделать из LiveData одноразовое событие",
+          "Что такое Data Binding и как его применять",
+          "Как работает ViewModelProvider и что такое ViewModelStoreOwner"
+        ],
+        "advanced": [
+          "Чем можно заменить LiveData",
+          "За счёт чего ViewModel переживает поворот",
+          "Что такое SavedStateHandle и как им пользоваться",
+          "Плюсы и минусы Data Binding по сравнению с View Binding",
+          "Кастомные атрибуты и адаптеры в Data Binding"
+        ]
+      }
+    },
+    {
+      "t": "MVP",
+      "l": {
+        "novice": [
+          "Как работает MVP, его плюсы и минусы",
+          "Какие обязанности у View, Presenter и Model",
+          "Как взаимодействуют View и Presenter"
+        ],
+        "interm": [
+          "В чём суть Moxy и что такое ViewState",
+          "Какие особенности у Mosby без MVI",
+          "Как без библиотек привязать презентер к жизненному циклу и сохранить состояние"
+        ],
+        "advanced": [
+          "Чем опасен презентер в статическом поле",
+          "Какие стратегии у Moxy и где хранится презентер",
+          "Детали использования Mosby"
+        ]
+      }
+    },
+    {
+      "t": "Clean architecture",
+      "l": {
+        "novice": [
+          "Какие проблемы решает чистая архитектура и в чём её польза",
+          "Какие слои выделяются в чистой архитектуре",
+          "Что такое правило зависимостей и зачем оно",
+          "Какие недостатки у чистой архитектуры",
+          "Сочетаются ли MVVM и MVP с чистой архитектурой и почему"
+        ],
+        "interm": [
+          "Чем UseCase отличается от интерактора",
+          "Зачем нужны мапперы и в каком слое они живут",
+          "Сколько слоёв может быть в чистой архитектуре: два или пять",
+          "С какими проблемами сталкиваются проекты без чистой архитектуры"
+        ],
+        "advanced": [
+          "Как добиться слабой связанности слоёв",
+          "Как разбить чистую архитектуру на модули и какие тут плюсы и минусы",
+          "Чем DTO отличается от Entity",
+          "Как переиспользовать UseCase между фича-модулями",
+          "Как встроить навигацию, не ломая архитектуру"
+        ]
+      }
+    },
+    {
+      "t": "MVI",
+      "l": {
+        "novice": [
+          "Как работает MVI",
+          "Плюсы и минусы MVI",
+          "В чём идея однонаправленного потока данных",
+          "Почему MVI так хорошо ложится на Jetpack Compose"
+        ],
+        "interm": [
+          "Что такое state и зачем нужен reducer",
+          "Что такое actions в MVI",
+          "Что такое side effects в MVI",
+          "Что такое store в MVI"
+        ],
+        "advanced": [
+          "Какие реализации MVI использовал и какие у них плюсы и минусы",
+          "Что такое Elm-архитектура"
+        ]
+      }
+    }
+  ]
+},
+{
+  "t": "Testing",
+  "s": [
+    {
+      "t": "Unit testing",
+      "l": {
+        "novice": [
+          "Какую пользу дают юнит-тесты",
+          "Что такое Mockito и для чего он",
+          "Что такое mock-объект",
+          "Какие аннотации есть у тестов: @Test, @Before и другие",
+          "Mockito против MockK",
+          "JUnit против Kotest"
+        ],
+        "interm": [
+          "Как создать mock для класса или интерфейса",
+          "Что возвращает метод у mock и как задать нужное значение",
+          "Как через verify проверить число вызовов метода",
+          "Что такое матчеры Hamcrest и AssertJ",
+          "Чем TDD отличается от BDD",
+          "Зачем нужен Robolectric",
+          "Как написать параметризованный тест",
+          "Что такое fake-объект и чем он отличается от mock"
+        ],
+        "advanced": [
+          "Что такое Rules в тестах и как их писать",
+          "Как мокать final, static и абстрактные классы",
+          "Зачем нужен ArgumentCaptor и как им пользоваться",
+          "Mock, Stub и Spy — в чём отличия",
+          "Чем Spock отличается от классических тест-фреймворков",
+          "Как тестировать корутины и Flow и что такое Turbine"
+        ]
+      }
+    },
+    {
+      "t": "UI testing",
+      "l": {
+        "novice": [
+          "Чем UI-тесты отличаются от юнит-тестов",
+          "Какие библиотеки для UI-тестов есть и чем различаются",
+          "Как написать простой UI-тест на Espresso"
+        ],
+        "interm": [
+          "Сравни Espresso, Kaspresso, UI Automator и Kakao",
+          "Что такое скриншот-тестирование и какие библиотеки есть",
+          "Что такое ActivityScenario и что она умеет"
+        ],
+        "advanced": [
+          "Паттерны для UI-тестов: Page Object, Kotlin DSL",
+          "Что нового в androidx.test и что такое Robolectric",
+          "Как таргетировать тест на конкретный SDK и контекст",
+          "Как выстроить весь процесс UI-тестирования от фреймворка до CI",
+          "AndroidJUnitRunner против Marathon"
+        ]
+      }
+    }
+  ]
+}];</script>
+<script>
+(function(){
+'use strict';
+var DATA = window.KS_DATA;
+var LEVELS = ['novice','interm','advanced'];
+var LV = {
+  novice:{emoji:'🤓',name:'Junior'},
+  interm:{emoji:'🧐',name:'Middle'},
+  advanced:{emoji:'😎',name:'Senior'}
+};
+
+var state = {query:'', levels:{}, openSubs:{}, closedLevels:{}};
+var asked = {};
+try{ asked = JSON.parse(localStorage.getItem('ks-asked')||'{}') || {}; }catch(e){ asked = {}; }
+function saveAsked(){ try{ localStorage.setItem('ks-asked', JSON.stringify(asked)); }catch(e){} }
+
+var totalQuestions = 0, totalSubs = 0, totalLvBlocks = 0;
+DATA.forEach(function(sec){
+  totalSubs += sec.s.length;
+  sec.s.forEach(function(sub){
+    LEVELS.forEach(function(lv){
+      totalQuestions += (sub.l[lv]||[]).length;
+      totalLvBlocks += 1;
+    });
+  });
+});
+
+var content = document.getElementById('content');
+var nav = document.getElementById('nav');
+var mobilenav = document.getElementById('mobilenav');
+var statusEl = document.getElementById('status');
+var emptyEl = document.getElementById('empty');
+document.querySelector('#empty .btn').addEventListener('click', resetFilters);
+
+var secEls = [], subEls = [], lvEls = [], navItems = [], navPills = [];
+
+var ICON_CHECK = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5L5 9l4.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var ICON_CHEV = '<svg class="chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+var ICON_COPY = '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M9.5 4.5V3.5a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 0 2 3.5V8A1.5 1.5 0 0 0 3.5 9.5h1" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>';
+
+function keySub(si,bi){ return si+':'+bi; }
+function keyLv(si,bi,li){ return si+':'+bi+':'+li; }
+
+/* ---------- build ---------- */
+DATA.forEach(function(sec,si){
+  var section = document.createElement('section');
+  section.className = 'section';
+  section.id = 'sec-'+si;
+  section.dataset.si = si;
+  var h2 = document.createElement('h2');
+  var titleSpan = document.createElement('span');
+  titleSpan.textContent = sec.t;
+  var countSpan = document.createElement('span');
+  countSpan.className = 'sec-count';
+  h2.appendChild(titleSpan);
+  h2.appendChild(countSpan);
+  section.appendChild(h2);
+  var subsWrap = document.createElement('div');
+  subsWrap.className = 'subs';
+  section.appendChild(subsWrap);
+  content.appendChild(section);
+
+  secEls.push({el:section, countEl:countSpan});
+  subEls.push([]);
+  lvEls.push([]);
+
+  var secTotal = 0;
+  sec.s.forEach(function(sub){ LEVELS.forEach(function(lv){ secTotal += (sub.l[lv]||[]).length; }); });
+
+  var navBtn = document.createElement('button');
+  navBtn.className = 'nav-item';
+  navBtn.innerHTML = '<span></span><span class="count">'+secTotal+'</span>';
+  navBtn.firstChild.textContent = sec.t;
+  navBtn.addEventListener('click', function(){ scrollToSec(si); });
+  nav.appendChild(navBtn);
+  navItems.push({btn:navBtn, countEl:navBtn.querySelector('.count'), total:secTotal});
+
+  var pill = document.createElement('button');
+  pill.className = 'nav-pill';
+  pill.textContent = sec.t;
+  pill.addEventListener('click', function(){ scrollToSec(si); });
+  mobilenav.appendChild(pill);
+  navPills.push(pill);
+
+  sec.s.forEach(function(sub,bi){
+    var card = document.createElement('article');
+    card.className = 'sub';
+
+    var head = document.createElement('button');
+    head.className = 'sub-head';
+    head.setAttribute('aria-expanded','false');
+    var tEl = document.createElement('span');
+    tEl.className = 'sub-title';
+    tEl.textContent = sub.t;
+    var cEl = document.createElement('span');
+    cEl.className = 'sub-count';
+    var subTotal = 0;
+    LEVELS.forEach(function(lv){ subTotal += (sub.l[lv]||[]).length; });
+    cEl.textContent = subTotal;
+    head.appendChild(tEl);
+    head.appendChild(cEl);
+    head.insertAdjacentHTML('beforeend', ICON_CHEV);
+
+    var levelsWrap = document.createElement('div');
+    levelsWrap.className = 'levels';
+    var levelsInner = document.createElement('div');
+    levelsInner.className = 'levels-inner';
+    levelsWrap.appendChild(levelsInner);
+
+    card.appendChild(head);
+    card.appendChild(levelsWrap);
+    subsWrap.appendChild(card);
+
+    subEls[si].push({card:card, head:head, levelsWrap:levelsWrap, countEl:cEl, total:subTotal});
+    lvEls[si].push([]);
+
+    head.addEventListener('click', function(){
+      if(state.query){ return; }
+      var k = keySub(si,bi);
+      if(state.openSubs[k]){ delete state.openSubs[k]; } else { state.openSubs[k] = true; }
+      applyFilters();
+    });
+
+    LEVELS.forEach(function(lv,li){
+      var arr = sub.l[lv]||[];
+      var meta = LV[lv];
+
+      var block = document.createElement('div');
+      block.className = 'lv-block';
+      block.dataset.lv = lv;
+
+      var lhead = document.createElement('button');
+      lhead.className = 'lv-head';
+      lhead.setAttribute('aria-expanded','false');
+      lhead.insertAdjacentHTML('beforeend',
+        '<span class="lv-emoji">'+meta.emoji+'</span>'+
+        '<span class="lv-name">'+meta.name+'</span>'+
+        '<span class="lv-progress"></span>'+ICON_CHEV);
+
+      var body = document.createElement('div');
+      body.className = 'lv-body';
+      var ul = document.createElement('ul');
+      ul.className = 'q-list';
+      body.appendChild(ul);
+      block.appendChild(lhead);
+      block.appendChild(body);
+      levelsInner.appendChild(block);
+
+      var items = [];
+      arr.forEach(function(q){
+        var li = document.createElement('li');
+        li.className = 'q-item';
+        li.dataset.q = q;
+
+        var chk = document.createElement('button');
+        chk.className = 'q-check';
+        chk.title = 'Отметить как заданный';
+        chk.setAttribute('aria-pressed','false');
+        chk.innerHTML = ICON_CHECK;
+        chk.addEventListener('click', function(e){
+          e.stopPropagation();
+          toggleAsked(q);
+        });
+
+        var txt = document.createElement('span');
+        txt.className = 'q-text';
+
+        var cp = document.createElement('button');
+        cp.className = 'q-copy';
+        cp.title = 'Скопировать вопрос';
+        cp.innerHTML = ICON_COPY;
+        cp.addEventListener('click', function(e){
+          e.stopPropagation();
+          copyText(q);
+        });
+
+        li.appendChild(chk);
+        li.appendChild(txt);
+        li.appendChild(cp);
+        ul.appendChild(li);
+        items.push({li:li, chk:chk, txt:txt, q:q});
+      });
+
+      lvEls[si][bi].push({
+        block:block, head:lhead, body:body,
+        progressEl:lhead.querySelector('.lv-progress'),
+        items:items, total:arr.length
+      });
+
+      lhead.addEventListener('click', function(){
+        if(state.query){ return; }
+        var k = keyLv(si,bi,li);
+        if(state.closedLevels[k]){ delete state.closedLevels[k]; } else { state.closedLevels[k] = true; }
+        applyFilters();
+      });
+    });
+  });
+});
+
+/* ---------- text with search highlight ---------- */
+function renderText(el, text){
+  if(!state.query){ el.textContent = text; return; }
+  var s = state.query.toLowerCase();
+  var lower = text.toLowerCase();
+  if(lower.indexOf(s) === -1){ el.textContent = text; return; }
+  el.textContent = '';
+  var pos = 0, i;
+  while((i = lower.indexOf(s, pos)) !== -1){
+    if(i > pos){ el.appendChild(document.createTextNode(text.slice(pos, i))); }
+    var m = document.createElement('mark');
+    m.textContent = text.slice(i, i + s.length);
+    el.appendChild(m);
+    pos = i + s.length;
+  }
+  if(pos < text.length){ el.appendChild(document.createTextNode(text.slice(pos))); }
+}
+
+/* ---------- filtering ---------- */
+function matchQ(q, lv, sec, sub){
+  if(Object.keys(state.levels).length && !state.levels[lv]) return false;
+  if(!state.query) return true;
+  var s = state.query.toLowerCase();
+  return q.toLowerCase().indexOf(s) !== -1
+      || sub.t.toLowerCase().indexOf(s) !== -1
+      || sec.t.toLowerCase().indexOf(s) !== -1;
+}
+
+function applyFilters(){
+  var searching = !!state.query;
+  var filtering = searching || !!Object.keys(state.levels).length;
+  var visible = 0;
+
+  DATA.forEach(function(sec,si){
+    var secVisible = 0;
+    sec.s.forEach(function(sub,bi){
+      var subVisible = 0;
+      LEVELS.forEach(function(lv,li){
+        var L = lvEls[si][bi][li];
+        var n = 0;
+        L.items.forEach(function(it){
+          var show = matchQ(it.q, lv, sec, sub);
+          it.li.hidden = !show;
+          if(show){
+            renderText(it.txt, it.q);
+            n++;
+          }
+        });
+        L.block.hidden = n === 0;
+        var open = searching
+          ? n > 0
+          : !!(state.openSubs[keySub(si,bi)] && !state.closedLevels[keyLv(si,bi,li)]);
+        L.block.classList.toggle('open', open);
+        L.head.setAttribute('aria-expanded', String(open));
+        if(n) subVisible += n;
+      });
+      var subEl = subEls[si][bi];
+      var open = searching
+        ? subVisible > 0
+        : !!state.openSubs[keySub(si,bi)];
+      subEl.card.classList.toggle('open', open);
+      subEl.head.setAttribute('aria-expanded', String(open));
+      subEl.card.hidden = subVisible === 0;
+      subEl.countEl.textContent = filtering ? String(subVisible) : String(subEl.total);
+      if(subVisible) secVisible += subVisible;
+    });
+    var secEl = secEls[si];
+    secEl.el.hidden = secVisible === 0;
+    secEl.countEl.textContent = filtering ? String(secVisible) : String(navItems[si].total);
+    navItems[si].countEl.textContent = filtering ? String(secVisible) : String(navItems[si].total);
+    navItems[si].btn.classList.toggle('dim', filtering && secVisible === 0);
+    navPills[si].classList.toggle('dim', filtering && secVisible === 0);
+    if(secVisible) visible += secVisible;
+  });
+
+  statusEl.hidden = !filtering;
+  if(filtering){
+    statusEl.innerHTML = '';
+    var b = document.createElement('b');
+    b.textContent = 'Найдено: '+visible;
+    var span = document.createElement('span');
+    span.textContent = searching ? ('по запросу «'+state.query+'»') : 'по выбранным уровням';
+    var btn = document.createElement('button');
+    btn.textContent = 'Сбросить';
+    btn.addEventListener('click', resetFilters);
+    statusEl.appendChild(b);
+    statusEl.appendChild(span);
+    statusEl.appendChild(btn);
+  }
+  emptyEl.hidden = !(filtering && visible === 0);
+  updateExpandLabel();
+}
+
+function resetFilters(){
+  state.query = '';
+  state.levels = {};
+  searchInput.value = '';
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.classList.toggle('active', c.dataset.level === 'all');
+  });
+  applyFilters();
+  searchInput.focus();
+}
+
+/* ---------- asked / progress ---------- */
+function toggleAsked(q){
+  if(asked[q]){ delete asked[q]; } else { asked[q] = true; }
+  saveAsked();
+  updateProgress();
+}
+
+function updateProgress(){
+  var askedCount = 0;
+  DATA.forEach(function(sec,si){
+    sec.s.forEach(function(sub,bi){
+      LEVELS.forEach(function(lv,li){
+        var L = lvEls[si][bi][li];
+        var n = 0;
+        L.items.forEach(function(it){
+          var done = !!asked[it.q];
+          it.li.classList.toggle('done', done);
+          it.chk.setAttribute('aria-pressed', String(done));
+          if(done) n++;
+        });
+        L.progressEl.textContent = n+'/'+L.total;
+        L.progressEl.classList.toggle('has-asked', n > 0);
+        askedCount += n;
+      });
+    });
+  });
+  progressText.textContent = askedCount+'/'+totalQuestions;
+  progressFill.style.width = totalQuestions ? ((askedCount/totalQuestions)*100).toFixed(1)+'%' : '0%';
+}
+
+/* ---------- expand / collapse ---------- */
+var toggleAll = document.getElementById('toggleAll');
+function updateExpandLabel(){
+  var allOpen = Object.keys(state.openSubs).length === totalSubs
+    && Object.keys(state.closedLevels).length === 0;
+  toggleAll.textContent = allOpen ? 'Свернуть всё' : 'Развернуть всё';
+}
+toggleAll.addEventListener('click', function(){
+  var allOpen = Object.keys(state.openSubs).length === totalSubs
+    && Object.keys(state.closedLevels).length === 0;
+  state.openSubs = {};
+  state.closedLevels = {};
+  if(!allOpen){
+    DATA.forEach(function(sec,si){
+      sec.s.forEach(function(sub,bi){
+        state.openSubs[keySub(si,bi)] = true;
+      });
+    });
+  }
+  applyFilters();
+});
+
+/* ---------- search ---------- */
+var searchInput = document.getElementById('search');
+var debounce = null;
+searchInput.addEventListener('input', function(){
+  clearTimeout(debounce);
+  var v = searchInput.value;
+  debounce = setTimeout(function(){
+    state.query = v.trim();
+    applyFilters();
+  }, 120);
+});
+searchInput.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ resetFilters(); }
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === '/' && document.activeElement !== searchInput){
+    e.preventDefault();
+    searchInput.focus();
+  }
+});
+
+/* ---------- level chips ---------- */
+document.querySelectorAll('.chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    var lv = chip.dataset.level;
+    if(lv === 'all'){
+      state.levels = {};
+      document.querySelectorAll('.chip').forEach(function(c){
+        c.classList.toggle('active', c.dataset.level === 'all');
+      });
+    } else {
+      if(state.levels[lv]){ delete state.levels[lv]; } else { state.levels[lv] = true; }
+      var any = Object.keys(state.levels).length > 0;
+      chip.classList.toggle('active', !!state.levels[lv]);
+      document.querySelector('.chip[data-level="all"]').classList.toggle('active', !any);
+    }
+    applyFilters();
+  });
+});
+
+/* ---------- theme ---------- */
+var themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', function(){
+  var cur = document.documentElement.dataset.theme;
+  var next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  try{ localStorage.setItem('ks-theme', next); }catch(e){}
+});
+
+/* ---------- copy ---------- */
+function copyText(q){
+  var done = function(){ toast('Вопрос скопирован'); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(q).then(done, function(){ legacyCopy(q); });
+  } else {
+    legacyCopy(q);
+  }
+}
+function legacyCopy(q){
+  var ta = document.createElement('textarea');
+  ta.value = q;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try{ document.execCommand('copy'); toast('Вопрос скопирован'); }catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* ---------- toast ---------- */
+var toastEl = document.getElementById('toast');
+var toastTimer = null;
+function toast(msg){
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 1600);
+}
+
+/* ---------- reset asked ---------- */
+document.getElementById('resetBtn').addEventListener('click', function(){
+  if(!Object.keys(asked).length){ toast('Отметок и так нет'); return; }
+  asked = {};
+  saveAsked();
+  updateProgress();
+  toast('Отметки «задано» сброшены');
+});
+
+/* ---------- nav & scrollspy ---------- */
+function scrollToSec(si){
+  secEls[si].el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function setActiveNav(idx){
+  navItems.forEach(function(nv,i){ nv.btn.classList.toggle('active', i === idx); });
+  navPills.forEach(function(p,i){ p.classList.toggle('active', i === idx); });
+}
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ setActiveNav(parseInt(en.target.dataset.si,10)); }
+    });
+  }, {rootMargin:'-92px 0px -60% 0px', threshold:0});
+  secEls.forEach(function(s){ io.observe(s.el); });
+}
+
+/* ---------- stats ---------- */
+document.getElementById('statSections').textContent = DATA.length;
+document.getElementById('statSubs').textContent = totalSubs;
+document.getElementById('statQuestions').textContent = totalQuestions;
+var progressText = document.getElementById('progressText');
+var progressFill = document.getElementById('progressFill');
+
+/* ---------- init ---------- */
+updateProgress();
+applyFilters();
+})();
+</script>
+</body>
+</html>
